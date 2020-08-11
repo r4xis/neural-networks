@@ -118,15 +118,10 @@ for batch_train in test_loader: # Get Batch
       model.eval()
       if CUDA:
         model = model.cuda()
-#       image = cv2.imread("/content/cat.jpg")
-#       trans1 = transforms.ToTensor()
-#       image = trans1(image)
       images, labels = batch_train 
       if CUDA:
         images = images.cuda()
         labels = labels.cuda()
-#         image = image.cuda()
-#       image = image.unsqueeze(0)
       preds = model(images) # Pass Batch
       images, labels = batch_train 
       grid = torchvision.utils.make_grid(images, nrow=1)
